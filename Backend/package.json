@@ -1,0 +1,21 @@
+{
+  "name": "watson",
+  "version": "1.0.0",
+  "description": "This package is for Telefonica Project node dependencies",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Vinshu Gupta",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cors": "^2.7.1",
+    "express": "^4.14.0",
+    "fs": "0.0.2",
+    "method-override": "^2.3.6",
+    "nodemon": "^1.9.2",
+    "watson-developer-cloud": "^1.9.4"
+  }
+}

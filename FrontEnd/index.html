@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+	<title>Telefonica</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+
+	<script>
+function setDialogSession() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange=function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+console.log("New session set...");
+
+    }
+  };
+  xhttp.open("GET", "http://localhost:6080/api/WelcomeData?t=" + Math.random(), true);
+  xhttp.send();
+}
+</script>
+</head>
+<body>
+		<section class="slider" id="home">
+				<div class="container-fluid">
+					<div class="row">
+					    <img src="img/Bg_blue.jpg" alt="">
+						<div class ="npcImage"></div>
+						<div class="intro-caption">
+				        <h1>Welocme to Telefonica</h1>
+				        <p> I am Paige! I can assist you knowing more about PSA</p>
+				        <a class="letsgo" href="chat.html"><button onclick="setDialogSession()"></button></a>
+						</div>
+					</div>
+				</div>
+			</section>
+			
+	<!-- script tags
+	============================================================= -->
+	<script src="js/jquery-2.1.1.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script src="js/gmaps.js"></script>
+	<script src="js/smoothscroll.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/custom.js"></script>
+	
+</body>
+</html>

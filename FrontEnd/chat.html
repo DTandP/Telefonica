@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8">
+	<title>Telefonica</title>
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<!-- <script type="text/javascript" src="js/index.js"></script> -->
+
+	<script>
+		
+	var count=1;
+	var temp;
+	$(document).ready(function(e){
+		$("#callDialogs").click(triggerHandler);
+
+		/*$("#callDialogs").click(function(e){
+
+triggerHandler();
+		});*/
+		
+		$("#msgBlock").focus(function(e){
+			$("#msgBlock").val("");
+		});
+		
+	});
+
+	function triggerHandler(){
+
+
+				console.log("Web client seeking the response from server...");
+			var msgBlock = document.getElementById('msgBlock').value;
+$("#container")[0].scrollTop = $("#container")[0].scrollHeight;
+			$("#container").append('<div class="user-chat"><p>'+msgBlock+'</p></div><br><br><br><br>').show('slow');
+$("#container")[0].scrollTop = $("#container")[0].scrollHeight;
+			
+			$.get("http://localhost:6080/api/nlcGetInitialData?msg="+msgBlock+"&count="+count, function(responseText){
+				
+			
+
+			$("#container").append('<div class="npc-chat"><div class ="npcChatIcon"></div><p>'+responseText+'</p></div><br>').show('slow');
+
+			$("#container")[0].scrollTop = $("#container")[0].scrollHeight;
+			count = count +1;		
+			$("#msgBlock").val("");
+			
+			});
+	}
+
+	</script>
+</head>
+<body>
+		
+			<section class="slider" id="about">
+				<div class="container-fluid">
+					<div class="row">
+						<img src="img/Bg_blue.jpg" alt=""/>
+							<div class="chat-window " id="container">
+							
+								<div class="npc-chat">
+								<div class ="npcChatIcon"></div>
+									<p>Ask anything about PSA?</p>
+								</div>
+							</div>
+							
+						<div class="chat-bar footer">
+									
+										<input name="usermsg" type="text" id="msgBlock" />
+										<button  name="submitmsg" id="callDialogs" >Send</button>
+									
+						</div>
+					</div>
+				</div>
+			</section>
+	<!-- script tags
+	============================================================= -->
+	<script src="js/jquery-2.1.1.js"></script>
+	<script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+	<script src="js/gmaps.js"></script>
+	<script src="js/smoothscroll.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/custom.js"></script>
+	
+</body>
+</html>
+
+
